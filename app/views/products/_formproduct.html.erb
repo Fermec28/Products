@@ -1,0 +1,20 @@
+<%= form_for @product  do |f| %>
+<div class="form-group">
+	<%= f.label "Nombre:" %>
+    <%= f.text_field :name, class: "form-control"%>		
+</div>
+<div class="form-group">
+	<%= f.label "Precio:" %>
+    <%= f.text_field :price, class: "form-control"%>		
+</div>
+<div class="form-group">
+  <%= f.label "Area of Categories" %><br />
+  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
+    <div class="collection-check-box">
+      <%= b.check_box %>
+      <%= b.label %>
+    </div>
+  <% end %>
+</div>
+	<%= f.submit %>
+<% end %>
